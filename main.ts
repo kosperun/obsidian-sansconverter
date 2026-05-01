@@ -16,6 +16,18 @@ const HK = [
   "A", "I", "U", "lR", "RR", "R", "S", "G", "J", "T", "D", "N", "z", "H", "M"
 ];
 
+const VELTHIUS = [
+  "aa", "ii", "uu", ".l", ".rr", ".r", ".s", '"n', "~n", ".t", ".d", ".n", '"s', ".h", ".m",
+  "AA", "II", "UU", ".L", ".RR", ".R", ".S", '"N', "~N", ".T", ".D", ".N", '"S', ".H", ".M"
+];
+
+const VELTHIUS_EXT = [
+  "AA", "II", "UU", ".L", ".RR", ".R", '"S', ".S", '"N', "~N", ".T", ".D", ".N", ".H", ".M",
+  "A", "B", "C", "J", "J", "D", "E", "G", "H", "I", "K", "L", "M", "N", "O", "P", "R", "S", "T", "U",
+  "V", "Y", "aa", "ii", "uu", ".l", ".rr", ".r", '"s', ".s", '"n', "~n", ".t", ".d", ".n", ".h", ".m",
+  "a", "b", "c", "j", "d", "e", "g", "h", "i", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "v", "y"
+];
+
 // Extended mappings (for conversions involving Ukrainian)
 const IAST_EXT = [
   "Ā", "Ī", "Ū", "Ḷ", "Ṝ", "Ṛ", "Ś", "Ṣ", "Ṅ", "Ñ", "Ṭ", "Ḍ", "Ṇ", "Ḥ", "Ṁ", "A", "B", "C",
@@ -53,6 +65,7 @@ enum Encoding {
   IAST = "IAST",
   Balaram = "Balaram",
   HK = "HK",
+  Velthius = "Velthius",
   UKR = "Ukrainian"
 }
 
@@ -169,6 +182,14 @@ function hkToUkr(str: string): string {
   return convert(str, HK_EXT, UKR, Encoding.HK, Encoding.UKR);
 }
 
+function velthiusToIast(str: string): string {
+  return convert(str, VELTHIUS, IAST, Encoding.Velthius, Encoding.IAST);
+}
+
+function velthiusToUkr(str: string): string {
+  return convert(str, VELTHIUS_EXT, UKR, Encoding.Velthius, Encoding.UKR);
+}
+
 export default class SansConverterPlugin extends Plugin {
   async onload() {
     // IAST → Balaram
@@ -211,6 +232,20 @@ export default class SansConverterPlugin extends Plugin {
       id: 'hk-to-ukrainian',
       name: 'Convert selection: Harvard-Kyoto → Ukrainian',
       editorCallback: (editor: Editor) => this.convertSelection(editor, hkToUkr)
+    });
+
+    // Velthius → IAST
+    this.addCommand({
+      id: 'velthius-to-iast',
+      name: 'Convert selection: Velthius → IAST',
+      editorCallback: (editor: Editor) => this.convertSelection(editor, velthiusToIast)
+    });
+
+    // Velthius → Ukrainian
+    this.addCommand({
+      id: 'velthius-to-ukrainian',
+      name: 'Convert selection: Velthius → Ukrainian',
+      editorCallback: (editor: Editor) => this.convertSelection(editor, velthiusToUkr)
     });
 
     new Notice('SansConverter plugin loaded');

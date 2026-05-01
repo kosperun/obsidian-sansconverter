@@ -5,20 +5,23 @@ An Obsidian plugin for converting between Sanskrit transliteration encodings. Ba
 ## Supported Encodings
 
 - **IAST** (International Alphabet of Sanskrit Transliteration)
-- **Balaram** (used in many Vaiṣṇava publications)
+- **Balaram** (used in many Vaiṣṇava publications, legacy)
 - **Harvard-Kyoto** (ASCII-friendly encoding)
+- **Velthius** (ASCII-friendly encoding using digraphs)
 - **Ukrainian IAST** (Cyrillic-based transliteration)
 
 ## Available Conversions
 
 | From | To |
 |------|-----|
-| IAST | Balaram |
-| IAST | Ukrainian |
-| Balaram | IAST |
-| Balaram | Ukrainian |
 | Harvard-Kyoto | IAST |
 | Harvard-Kyoto | Ukrainian |
+| Velthius | IAST |
+| Velthius | Ukrainian |
+| Balaram (legacy) | IAST |
+| Balaram (legacy) | Ukrainian |
+| IAST | Balaram (legacy) |
+| IAST | Ukrainian |
 
 ## Installation
 
@@ -52,22 +55,28 @@ For faster workflow, assign custom hotkeys:
 3. Assign your preferred key combinations
 
 **Suggested hotkeys:**
+
 - `Cmd/Ctrl + Shift + I` → IAST → Balaram
 - `Cmd/Ctrl + Shift + B` → Balaram → IAST
 - etc.
 
 ## Examples
 
-| Input (IAST) | Output (Balaram) |
-|--------------|------------------|
-| Kṛṣṇa | Kåñëa |
-| Śrīmad-Bhāgavatam | Çrémad-Bhägavatam |
-| Caitanya Mahāprabhu | Caitanya Mahäprabhu |
+| Input (Balaram, legacy) | Output (IAST) |
+|-------------------------|---------------|
+| Kåñëa | Kṛṣṇa |
+
+| Input (Harvard-Kyoto) | Output (IAST) |
+|-----------------------|---------------|
+| KRSNa | Kṛṣṇa |
+
+| Input (Velthius) | Output (IAST) |
+|------------------|---------------|
+| K.r.s.na | Kṛṣṇa |
 
 | Input (IAST) | Output (Ukrainian) |
 |--------------|-------------------|
 | Kṛṣṇa | Кр̣шн̣а |
-| gopī | ґопі |
 
 ## Contributing
 
@@ -76,7 +85,3 @@ Contributions are welcome! Feel free to submit issues or pull requests.
 ## License
 
 MIT License - see [LICENSE](LICENSE) for details.
-
-## Acknowledgments
-
-Based on transliteration mappings used in academic Sanskrit studies.
