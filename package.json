@@ -1,6 +1,6 @@
 {
   "name": "sansconverter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Obsidian plugin for converting between Sanskrit transliteration encodings",
   "main": "main.js",
   "scripts": {
@@ -20,7 +20,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^16.11.6",
-"esbuild": "0.17.3",
+    "esbuild": "0.17.3",
     "obsidian": "latest",
     "typescript": "^5.0.0",
     "eslint": "^9.0.0",
