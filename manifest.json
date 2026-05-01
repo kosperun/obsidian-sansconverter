@@ -1,11 +1,10 @@
 {
-	"id": "sample-plugin",
-	"name": "Sample Plugin",
-	"version": "1.0.0",
-	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
-	"isDesktopOnly": false
+  "id": "sansconverter",
+  "name": "SansConverter",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "Convert between IAST, Balaram, Harvard-Kyoto, and Ukrainian IAST encodings for Sanskrit transliteration.",
+  "author": "Kostiantyn Perun",
+  "authorUrl": "https://github.com/kosperun/obsidian-sansconverter",
+  "isDesktopOnly": false
 }

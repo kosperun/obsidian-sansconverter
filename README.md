@@ -1,90 +1,82 @@
-# Obsidian Sample Plugin
+# SansConverter for Obsidian
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+An Obsidian plugin for converting between Sanskrit transliteration encodings. Based on the [SansConverter](https://github.com/kosperun/SansConverter) desktop app.
 
-This project uses TypeScript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in TypeScript Definition format, which contains TSDoc comments describing what it does.
+## Supported Encodings
 
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
-- Adds a ribbon icon, which shows a Notice when clicked.
-- Adds a command "Open modal (simple)" which opens a Modal.
-- Adds a plugin setting tab to the settings page.
-- Registers a global click event and output 'click' to the console.
-- Registers a global interval which logs 'setInterval' to the console.
+- **IAST** (International Alphabet of Sanskrit Transliteration)
+- **Balaram** (used in many Vaiṣṇava publications)
+- **Harvard-Kyoto** (ASCII-friendly encoding)
+- **Ukrainian IAST** (Cyrillic-based transliteration)
 
-## First time developing plugins?
+## Available Conversions
 
-Quick starting guide for new plugin devs:
+| From | To |
+|------|-----|
+| IAST | Balaram |
+| IAST | Ukrainian |
+| Balaram | IAST |
+| Balaram | Ukrainian |
+| Harvard-Kyoto | IAST |
+| Harvard-Kyoto | Ukrainian |
 
-- Check if [someone already developed a plugin for what you want](https://obsidian.md/plugins)! There might be an existing plugin similar enough that you can partner up with.
-- Make a copy of this repo as a template with the "Use this template" button (login to GitHub if you don't see it).
-- Clone your repo to a local development folder. For convenience, you can place this folder in your `.obsidian/plugins/your-plugin-name` folder.
-- Install NodeJS, then run `npm i` in the command line under your repo folder.
-- Run `npm run dev` to compile your plugin from `main.ts` to `main.js`.
-- Make changes to `main.ts` (or create new `.ts` files). Those changes should be automatically compiled into `main.js`.
-- Reload Obsidian to load the new version of your plugin.
-- Enable plugin in settings window.
-- For updates to the Obsidian API run `npm update` in the command line under your repo folder.
+## Installation
 
-## Releasing new releases
+### Manual Installation
 
-- Update your `manifest.json` with your new version number, such as `1.0.1`, and the minimum Obsidian version required for your latest release.
-- Update your `versions.json` file with `"new-plugin-version": "minimum-obsidian-version"` so older versions of Obsidian can download an older version of your plugin that's compatible.
-- Create new GitHub release using your new version number as the "Tag version". Use the exact version number, don't include a prefix `v`. See here for an example: https://github.com/obsidianmd/obsidian-sample-plugin/releases
-- Upload the files `manifest.json`, `main.js`, `styles.css` as binary attachments. Note: The manifest.json file must be in two places, first the root path of your repository and also in the release.
-- Publish the release.
+1. Download the latest release from the [Releases](../../releases) page
+2. Extract the files into your vault's plugins folder: `<vault>/.obsidian/plugins/sanskrit-transliteration/`
+3. Reload Obsidian
+4. Go to Settings → Community plugins and enable "SansConverter"
 
-> You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
-> The command will bump version in `manifest.json` and `package.json`, and add the entry for the new version to `versions.json`
+### Using BRAT (Beta Reviewers Auto-update Tester)
 
-## Adding your plugin to the community plugin list
+1. Install [BRAT](https://github.com/TfTHacker/obsidian42-brat) from Community Plugins
+2. Open BRAT settings and click "Add Beta plugin"
+3. Enter this repository URL: `https://github.com/kosperun/obsidian-sansconverter`
+4. Enable the plugin in Community plugins
 
-- Check the [plugin guidelines](https://docs.obsidian.md/Plugins/Releasing/Plugin+guidelines).
-- Publish an initial version.
-- Make sure you have a `README.md` file in the root of your repo.
-- Make a pull request at https://github.com/obsidianmd/obsidian-releases to add your plugin.
+## Usage
 
-## How to use
+1. Select the text you want to convert
+2. Open the command palette (`Cmd/Ctrl + P`)
+3. Search for "Convert selection" and choose your desired conversion
+4. The selected text will be replaced with the converted version
 
-- Clone this repo.
-- Make sure your NodeJS is at least v16 (`node --version`).
-- `npm i` or `yarn` to install dependencies.
-- `npm run dev` to start compilation in watch mode.
+### Setting Hotkeys
 
-## Manually installing the plugin
+For faster workflow, assign custom hotkeys:
 
-- Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
+1. Go to Settings → Hotkeys
+2. Search for "SansConverter"
+3. Assign your preferred key combinations
 
-## Improve code quality with eslint
-- [ESLint](https://eslint.org/) is a tool that analyzes your code to quickly find problems. You can run ESLint against your plugin to find common bugs and ways to improve your code. 
-- This project already has eslint preconfigured, you can invoke a check by running`npm run lint`
-- Together with a custom eslint [plugin](https://github.com/obsidianmd/eslint-plugin) for Obsidan specific code guidelines.
-- A GitHub action is preconfigured to automatically lint every commit on all branches.
+**Suggested hotkeys:**
+- `Cmd/Ctrl + Shift + I` → IAST → Balaram
+- `Cmd/Ctrl + Shift + B` → Balaram → IAST
+- etc.
 
-## Funding URL
+## Examples
 
-You can include funding URLs where people who use your plugin can financially support it.
+| Input (IAST) | Output (Balaram) |
+|--------------|------------------|
+| Kṛṣṇa | Kåñëa |
+| Śrīmad-Bhāgavatam | Çrémad-Bhägavatam |
+| Caitanya Mahāprabhu | Caitanya Mahäprabhu |
 
-The simple way is to set the `fundingUrl` field to your link in your `manifest.json` file:
+| Input (IAST) | Output (Ukrainian) |
+|--------------|-------------------|
+| Kṛṣṇa | Кр̣шн̣а |
+| gopī | ґопі |
 
-```json
-{
-    "fundingUrl": "https://buymeacoffee.com"
-}
-```
+## Contributing
 
-If you have multiple URLs, you can also do:
+Contributions are welcome! Feel free to submit issues or pull requests.
 
-```json
-{
-    "fundingUrl": {
-        "Buy Me a Coffee": "https://buymeacoffee.com",
-        "GitHub Sponsor": "https://github.com/sponsors",
-        "Patreon": "https://www.patreon.com/"
-    }
-}
-```
+## License
 
-## API Documentation
+MIT License - see [LICENSE](LICENSE) for details.
 
-See https://docs.obsidian.md
+## Acknowledgments
+
+Based on transliteration mappings used in academic Sanskrit studies.
