@@ -27,8 +27,8 @@ An Obsidian plugin for converting between Sanskrit transliteration encodings. Ba
 
 ### Manual Installation
 
-1. Download the latest release from the [Releases](../../releases) page
-2. Extract the files into your vault's plugins folder: `<vault>/.obsidian/plugins/sanskrit-transliteration/`
+1. Download `main.js` and `manifest.json` from the [latest release](https://github.com/kosperun/obsidian-sansconverter/releases)
+2. Create a folder `<vault>/.obsidian/plugins/sansconverter/` and place both files there
 3. Reload Obsidian
 4. Go to Settings → Community plugins and enable "SansConverter"
 

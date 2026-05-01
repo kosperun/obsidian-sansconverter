@@ -1,4 +1,4 @@
-import { Plugin, Editor, MarkdownView, Notice } from 'obsidian';
+import { Plugin, Editor, Notice } from 'obsidian';
 
 // Character mappings (basic - for Roman-to-Roman conversions)
 const BALARAM = [
@@ -248,7 +248,6 @@ export default class SansConverterPlugin extends Plugin {
       editorCallback: (editor: Editor) => this.convertSelection(editor, velthiusToUkr)
     });
 
-    new Notice('SansConverter plugin loaded');
   }
 
   convertSelection(editor: Editor, convertFn: (s: string) => string) {
