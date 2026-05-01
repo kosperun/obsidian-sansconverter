@@ -5,6 +5,6 @@
   "minAppVersion": "0.15.0",
   "description": "Convert between IAST, Balaram, Harvard-Kyoto, Velthius, and Ukrainian encodings for Sanskrit transliteration.",
   "author": "Kostiantyn Perun",
-  "authorUrl": "https://github.com/kosperun/obsidian-sansconverter",
+  "authorUrl": "https://github.com/kosperun",
   "isDesktopOnly": false
 }
