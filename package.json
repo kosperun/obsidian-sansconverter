@@ -1,13 +1,20 @@
 {
   "name": "sansconverter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Obsidian plugin for converting between Sanskrit transliteration encodings",
   "main": "main.js",
   "scripts": {
     "dev": "node esbuild.config.mjs",
     "build": "node esbuild.config.mjs production"
   },
-  "keywords": ["obsidian", "plugin", "sanskrit", "transliteration", "iast", "balaram"],
+  "keywords": [
+    "obsidian",
+    "plugin",
+    "sanskrit",
+    "transliteration",
+    "iast",
+    "balaram"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
