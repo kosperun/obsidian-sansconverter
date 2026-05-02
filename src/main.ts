@@ -190,6 +190,14 @@ function velthiusToUkr(str: string): string {
   return convert(str, VELTHIUS_EXT, UKR, Encoding.Velthius, Encoding.UKR);
 }
 
+function iastToHk(str: string): string {
+  return convert(str, IAST_EXT, HK_EXT, Encoding.IAST, Encoding.HK);
+}
+
+function ukrToIast(str: string): string {
+  return convert(str, UKR, IAST_EXT, Encoding.UKR, Encoding.IAST);
+}
+
 export default class SansConverterPlugin extends Plugin {
   onload() {
     // IAST → Balaram
@@ -246,6 +254,20 @@ export default class SansConverterPlugin extends Plugin {
       id: 'velthius-to-ukrainian',
       name: 'Convert selection: Velthius → Ukrainian',
       editorCallback: (editor: Editor) => this.convertSelection(editor, velthiusToUkr)
+    });
+
+    // IAST → Harvard-Kyoto
+    this.addCommand({
+      id: 'iast-to-hk',
+      name: 'Convert selection: IAST → Harvard-Kyoto',
+      editorCallback: (editor: Editor) => this.convertSelection(editor, iastToHk)
+    });
+
+    // Ukrainian → IAST
+    this.addCommand({
+      id: 'ukrainian-to-iast',
+      name: 'Convert selection: Ukrainian → IAST',
+      editorCallback: (editor: Editor) => this.convertSelection(editor, ukrToIast)
     });
 
   }

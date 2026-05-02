@@ -22,6 +22,8 @@ An Obsidian plugin for converting between Sanskrit transliteration encodings. Ba
 | Balaram (legacy) | Ukrainian |
 | IAST | Balaram (legacy) |
 | IAST | Ukrainian |
+| IAST | Harvard-Kyoto |
+| Ukrainian | IAST |
 
 ## Installation
 
