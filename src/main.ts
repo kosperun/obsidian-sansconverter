@@ -191,7 +191,7 @@ function velthiusToUkr(str: string): string {
 }
 
 export default class SansConverterPlugin extends Plugin {
-  async onload() {
+  onload() {
     // IAST → Balaram
     this.addCommand({
       id: 'iast-to-balaram',
