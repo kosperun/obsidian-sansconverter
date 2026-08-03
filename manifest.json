@@ -1,7 +1,7 @@
 {
     "id": "sansconverter",
     "name": "SansConverter",
-    "version": "1.0.9",
+    "version": "1.1.0",
     "minAppVersion": "0.15.0",
     "description": "Convert between IAST, Balaram, Harvard-Kyoto, Velthuis, and Ukrainian encodings for Sanskrit transliteration.",
     "author": "Kostiantyn Perun",
