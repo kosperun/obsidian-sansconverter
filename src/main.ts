@@ -16,12 +16,12 @@ const HK = [
   "A", "I", "U", "lR", "RR", "R", "S", "G", "J", "T", "D", "N", "z", "H", "M"
 ];
 
-const VELTHIUS = [
+const VELTHUIS = [
   "aa", "ii", "uu", ".l", ".rr", ".r", ".s", '"n', "~n", ".t", ".d", ".n", '"s', ".h", ".m",
   "AA", "II", "UU", ".L", ".RR", ".R", ".S", '"N', "~N", ".T", ".D", ".N", '"S', ".H", ".M"
 ];
 
-const VELTHIUS_EXT = [
+const VELTHUIS_EXT = [
   "AA", "II", "UU", ".L", ".RR", ".R", '"S', ".S", '"N', "~N", ".T", ".D", ".N", ".H", ".M",
   "A", "B", "C", "J", "J", "D", "E", "G", "H", "I", "K", "L", "M", "N", "O", "P", "R", "S", "T", "U",
   "V", "Y", "aa", "ii", "uu", ".l", ".rr", ".r", '"s', ".s", '"n', "~n", ".t", ".d", ".n", ".h", ".m",
@@ -65,7 +65,7 @@ enum Encoding {
   IAST = "IAST",
   Balaram = "Balaram",
   HK = "HK",
-  Velthius = "Velthius",
+  Velthuis = "Velthuis",
   UKR = "Ukrainian"
 }
 
@@ -182,12 +182,12 @@ function hkToUkr(str: string): string {
   return convert(str, HK_EXT, UKR, Encoding.HK, Encoding.UKR);
 }
 
-function velthiusToIast(str: string): string {
-  return convert(str, VELTHIUS, IAST, Encoding.Velthius, Encoding.IAST);
+function velthuisToIast(str: string): string {
+  return convert(str, VELTHUIS, IAST, Encoding.Velthuis, Encoding.IAST);
 }
 
-function velthiusToUkr(str: string): string {
-  return convert(str, VELTHIUS_EXT, UKR, Encoding.Velthius, Encoding.UKR);
+function velthuisToUkr(str: string): string {
+  return convert(str, VELTHUIS_EXT, UKR, Encoding.Velthuis, Encoding.UKR);
 }
 
 function iastToHk(str: string): string {
@@ -242,18 +242,18 @@ export default class SansConverterPlugin extends Plugin {
       editorCallback: (editor: Editor) => this.convertSelection(editor, hkToUkr)
     });
 
-    // Velthius → IAST
+    // Velthuis → IAST
     this.addCommand({
-      id: 'velthius-to-iast',
-      name: 'Convert selection: Velthius → IAST',
-      editorCallback: (editor: Editor) => this.convertSelection(editor, velthiusToIast)
+      id: 'velthuis-to-iast',
+      name: 'Convert selection: Velthuis → IAST',
+      editorCallback: (editor: Editor) => this.convertSelection(editor, velthuisToIast)
     });
 
-    // Velthius → Ukrainian
+    // Velthuis → Ukrainian
     this.addCommand({
-      id: 'velthius-to-ukrainian',
-      name: 'Convert selection: Velthius → Ukrainian',
-      editorCallback: (editor: Editor) => this.convertSelection(editor, velthiusToUkr)
+      id: 'velthuis-to-ukrainian',
+      name: 'Convert selection: Velthuis → Ukrainian',
+      editorCallback: (editor: Editor) => this.convertSelection(editor, velthuisToUkr)
     });
 
     // IAST → Harvard-Kyoto
