@@ -7,7 +7,7 @@ An Obsidian plugin for converting between Sanskrit transliteration encodings. Ba
 - **IAST** (International Alphabet of Sanskrit Transliteration)
 - **Balaram** (used in many Vaiṣṇava publications, legacy)
 - **Harvard-Kyoto** (ASCII-friendly encoding)
-- **Velthius** (ASCII-friendly encoding using digraphs)
+- **Velthuis** (ASCII-friendly encoding using digraphs)
 - **Ukrainian IAST** (Cyrillic-based transliteration)
 
 ## Available Conversions
@@ -16,8 +16,8 @@ An Obsidian plugin for converting between Sanskrit transliteration encodings. Ba
 |------|-----|
 | Harvard-Kyoto | IAST |
 | Harvard-Kyoto | Ukrainian |
-| Velthius | IAST |
-| Velthius | Ukrainian |
+| Velthuis | IAST |
+| Velthuis | Ukrainian |
 | Balaram (legacy) | IAST |
 | Balaram (legacy) | Ukrainian |
 | IAST | Balaram (legacy) |
@@ -72,7 +72,7 @@ For faster workflow, assign custom hotkeys:
 |-----------------------|---------------|
 | KRSNa | Kṛṣṇa |
 
-| Input (Velthius) | Output (IAST) |
+| Input (Velthuis) | Output (IAST) |
 |------------------|---------------|
 | K.r.s.na | Kṛṣṇa |
 
